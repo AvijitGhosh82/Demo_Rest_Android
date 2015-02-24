@@ -9,4 +9,30 @@
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
 
+    <string-array name="sample_names">
+        <item>Kenny Hudson </item>
+        <item>Ramiro Cox </item>
+        <item>Nathaniel Saunders </item>
+        <item>Lawrence Moore </item>
+        <item>Rosemary Johnson </item>
+        <item>Marlon Vaughn </item>
+        <item>Jorge Dixon </item>
+        <item>Hector Kelly </item>
+        <item>April Thornton </item>
+        <item>Gertrude Thomas </item>
+    </string-array>
+
+    <string-array name="sample_text">
+        <item>Are John and Jane very intelligent?</item>
+        <item>Frank  must work for a few hours.</item>
+        <item>Jill  isn't very busy now.</item>
+        <item>Turn left at the corner.</item>
+        <item>Awesome party last night!</item>
+        <item>You're such a killjoy.</item>
+        <item>I love you!</item>
+        <item>Did you watch the Oscars last night?</item>
+        <item>Please get some milk for me.</item>
+        <item>Submit your report by monday.</item>
+    </string-array>
+
 </resources>
