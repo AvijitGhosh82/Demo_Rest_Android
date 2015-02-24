@@ -25,14 +25,16 @@
     <string-array name="sample_text">
         <item>Are John and Jane very intelligent?</item>
         <item>Frank  must work for a few hours.</item>
-        <item>Jill  isn't very busy now.</item>
+        <item>Jill  isn\'t very busy now.</item>
         <item>Turn left at the corner.</item>
         <item>Awesome party last night!</item>
-        <item>You're such a killjoy.</item>
+        <item>You\'re such a killjoy.</item>
         <item>I love you!</item>
         <item>Did you watch the Oscars last night?</item>
         <item>Please get some milk for me.</item>
         <item>Submit your report by monday.</item>
+        <item>Wavit rocks!</item>
+        <item>Ugh....</item>
     </string-array>
 
 </resources>

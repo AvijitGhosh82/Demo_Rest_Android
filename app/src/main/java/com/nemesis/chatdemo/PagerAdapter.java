@@ -14,7 +14,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  * @author mwho
  */
 public class PagerAdapter extends FragmentPagerAdapter {
-    private final String[] TITLES = {"Categories", "Home", "Top Paid"};
+    private final String[] TITLES = {"Chat", "Mail", "Contacts"};
 
     private List<Fragment> fragments;
     /**

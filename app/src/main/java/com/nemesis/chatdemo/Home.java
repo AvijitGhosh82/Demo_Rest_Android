@@ -1,5 +1,7 @@
 package com.nemesis.chatdemo;
 
+import android.content.Context;
+import android.support.v4.app.ListFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 import android.support.v4.app.Fragment;
@@ -16,8 +19,16 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class Home extends ActionBarActivity {
@@ -30,7 +41,7 @@ public class Home extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
-        SpannableString s = new SpannableString("WeaveIt");
+        SpannableString s = new SpannableString("Wavit");
         if(toolbar != null)
         {
             setSupportActionBar(toolbar);
@@ -78,12 +89,22 @@ public class Home extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class Fragment1 extends Fragment {
+    public static class Fragment1 extends ListFragment {
+
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.frag1, container, false);
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+
+            MyAdapter adapter = new MyAdapter(getActivity());
+            setListAdapter(adapter);
+
+            getListView().setDivider(null);
+            getListView().setDividerHeight(0);
+        }
+
+        @Override
+        public void onListItemClick(ListView l, View v, int position, long id) {
+            // do something with the data
         }
     }
 
@@ -105,3 +126,71 @@ public class Home extends ActionBarActivity {
         }
     }
 }
+
+
+class MyAdapter extends BaseAdapter {
+
+    private Context context;
+    String[] txt,name;
+    int[] images={R.drawable.im0,R.drawable.im1,R.drawable.im2,R.drawable.im3,R.drawable.im4,R.drawable.im5,R.drawable.im6,R.drawable.im7,R.drawable.im8,R.drawable.im9,R.drawable.im10,R.drawable.im11,R.drawable.im12};
+    final Random rand = new Random();
+    int rndInt,rndtxt;
+
+    MyAdapter(Context context)
+    {
+        this.context=context;
+        name=context.getResources().getStringArray(R.array.sample_names);
+        txt=context.getResources().getStringArray(R.array.sample_text);
+        //rndInt = rand.nextInt(images.length);
+        //rndtxt = rand.nextInt(txt.length);
+    }
+
+    @Override
+    public int getCount() {
+        // TODO Auto-generated method stub
+        return name.length;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        // TODO Auto-generated method stub
+        return name[position];
+    }
+
+    @Override
+    public long getItemId(int arg0) {
+        // TODO Auto-generated method stub
+        return arg0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // TODO Auto-generated method stub
+        View row=null;
+
+
+        if(convertView==null)
+        {
+            LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            row=inflater.inflate(R.layout.list_single, parent, false);
+        }
+        else
+        {
+            row=convertView;
+        }
+        TextView tv1=(TextView) row.findViewById(R.id.name);
+        TextView tv2=(TextView) row.findViewById(R.id.txt);
+        CircleImageView iv1=(CircleImageView) row.findViewById(R.id.img);
+
+            tv1.setText(name[position]);
+            tv2.setText(txt[position]);
+            iv1.setImageResource(images[position]);
+
+
+
+        return row;
+    }
+
+}
+
+
