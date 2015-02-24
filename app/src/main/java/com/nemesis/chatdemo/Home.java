@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
@@ -133,16 +135,39 @@ class MyAdapter extends BaseAdapter {
     private Context context;
     String[] txt,name;
     int[] images={R.drawable.im0,R.drawable.im1,R.drawable.im2,R.drawable.im3,R.drawable.im4,R.drawable.im5,R.drawable.im6,R.drawable.im7,R.drawable.im8,R.drawable.im9,R.drawable.im10,R.drawable.im11,R.drawable.im12};
-    final Random rand = new Random();
-    int rndInt,rndtxt;
+
 
     MyAdapter(Context context)
     {
         this.context=context;
         name=context.getResources().getStringArray(R.array.sample_names);
         txt=context.getResources().getStringArray(R.array.sample_text);
-        //rndInt = rand.nextInt(images.length);
-        //rndtxt = rand.nextInt(txt.length);
+        shuffleArray(images);
+
+
+        Random rng = new Random();
+        List<String> arr = Arrays.asList(txt);
+        Collections.shuffle(arr, rng);
+        arr.toArray(txt);
+
+
+        rng = new Random();
+        arr = Arrays.asList(name);
+        Collections.shuffle(arr, rng);
+        arr.toArray(name);
+    }
+
+    static void shuffleArray(int[] ar)
+    {
+        Random rnd = new Random();
+        for (int i = ar.length - 1; i > 0; i--)
+        {
+            int index = rnd.nextInt(i + 1);
+            // Simple swap
+            int a = ar[index];
+            ar[index] = ar[i];
+            ar[i] = a;
+        }
     }
 
     @Override
@@ -180,13 +205,23 @@ class MyAdapter extends BaseAdapter {
         }
         TextView tv1=(TextView) row.findViewById(R.id.name);
         TextView tv2=(TextView) row.findViewById(R.id.txt);
+        TextView tv3=(TextView) row.findViewById(R.id.time);
         CircleImageView iv1=(CircleImageView) row.findViewById(R.id.img);
 
             tv1.setText(name[position]);
             tv2.setText(txt[position]);
             iv1.setImageResource(images[position]);
 
-
+            Random r = new Random();
+            int Low = 0;
+            int High = 23;
+            int R1 = r.nextInt(High-Low) + Low;
+            String f1 = String.format("%02d", R1);
+            Low = 00;
+            High=59;
+            int R2 = r.nextInt(High-Low) + Low;
+            String f2 = String.format("%02d", R2);
+            tv3.setText(f1+":"+f2);
 
         return row;
     }

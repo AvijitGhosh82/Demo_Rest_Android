@@ -50,20 +50,21 @@
          />
 
     <!-- Rightend Duration -->
-    <!--<TextView
-        android:id="@+id/duration"
+    <TextView
+        android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/title"
+        android:layout_alignTop="@id/name"
         android:gravity="right"
         android:text="5:45"
         android:layout_marginRight="5dip"
         android:textSize="10dip"
-        android:textColor="#10bcc9"
+        android:textColor="#C8306C"
         android:textStyle="bold"/>
 
-    < Rightend Arrow
+    <!-- Rightend Arrow
     <ImageView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/arrow"

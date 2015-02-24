@@ -20,6 +20,8 @@
         <item>Hector Kelly </item>
         <item>April Thornton </item>
         <item>Gertrude Thomas </item>
+        <item>Jeremiah Deen </item>
+        <item>Sheen Lucas </item>
     </string-array>
 
     <string-array name="sample_text">
@@ -34,7 +36,7 @@
         <item>Please get some milk for me.</item>
         <item>Submit your report by monday.</item>
         <item>Wavit rocks!</item>
-        <item>Ugh....</item>
+        <item>Bend it like Beckham ...</item>
     </string-array>
 
 </resources>
