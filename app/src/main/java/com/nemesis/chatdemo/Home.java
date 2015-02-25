@@ -117,6 +117,10 @@ public class Home extends ActionBarActivity {
         public void onListItemClick(ListView l, View v, int position, long id) {
             // do something with the data
             final Intent intent = new Intent(getActivity(), MessageActivity.class);
+
+            TextView tv1=(TextView) v.findViewById(R.id.name);
+            String name = tv1.getText().toString();
+            intent.putExtra("name", name);
             startActivity(intent);
         }
     }
