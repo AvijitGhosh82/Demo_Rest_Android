@@ -1,9 +1,13 @@
 package com.nemesis.chatdemo;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.ListFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+//import android.support.v7.internal.widget.AdapterViewCompat;
+import android.support.v7.internal.widget.AdapterViewCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
@@ -21,6 +25,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -37,6 +42,7 @@ public class Home extends ActionBarActivity {
 
     private Toolbar toolbar;
     private PagerAdapter mPagerAdapter;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,7 @@ public class Home extends ActionBarActivity {
         setContentView(R.layout.activity_home);
         toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         SpannableString s = new SpannableString("Wavit");
+
         if(toolbar != null)
         {
             setSupportActionBar(toolbar);
@@ -102,11 +109,15 @@ public class Home extends ActionBarActivity {
 
             getListView().setDivider(null);
             getListView().setDividerHeight(0);
+
+
         }
 
         @Override
         public void onListItemClick(ListView l, View v, int position, long id) {
             // do something with the data
+            final Intent intent = new Intent(getActivity(), MessageActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -156,6 +167,8 @@ class MyAdapter extends BaseAdapter {
         Collections.shuffle(arr, rng);
         arr.toArray(name);
     }
+
+
 
     static void shuffleArray(int[] ar)
     {
