@@ -6,7 +6,7 @@
     </item>
     <item android:state_selected="false">
         <nine-patch
-            android:src="@drawable/balloon_broadcast_outgoing_normal"/>
+            android:src="@drawable/balloon_outgoing_normal"/>
     </item>
 
 </selector>
