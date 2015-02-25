@@ -79,8 +79,10 @@
         android:id="@android:id/empty"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:adjustViewBounds="true"
         android:layout_above="@id/bottom_write_bar"
         android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
         android:gravity="center_vertical|center_horizontal"
         android:text="" />
 

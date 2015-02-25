@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <nine-patch
+            android:src="@drawable/balloon_incoming_focused"/>
+    </item>
+    <item android:state_selected="false">
+        <nine-patch
+            android:src="@drawable/balloon_incoming_normal"/>
+    </item>
+
+</selector>
