@@ -8,6 +8,7 @@ package com.nemesis.chatdemo;
 
         //import android.app.ListActivity;
         import android.app.ListActivity;
+        import android.content.Intent;
         import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.v7.app.ActionBarActivity;
@@ -39,6 +40,7 @@ public class MessageActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message_main);
 
+
         toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         SpannableString s = new SpannableString("Wavit");
         if(toolbar != null)
@@ -47,8 +49,19 @@ public class MessageActivity extends ActionBarActivity {
             getSupportActionBar().setTitle(s);
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            sender = Utility.sender[rand.nextInt( Utility.sender.length-1)];
-            getSupportActionBar().setTitle(sender);
+            //sender = Utility.sender[rand.nextInt( Utility.sender.length-1)];
+
+        }
+
+        Intent iin= getIntent();
+        Bundle b = iin.getExtras();
+
+        if(b!=null && toolbar!=null)
+        {
+            String j =(String) b.get("name");
+            SpannableString s1 = new SpannableString(j);
+            getSupportActionBar().setTitle(s1);
+            sender=j;
         }
 
         listView = (ListView) findViewById(R.id.list);
