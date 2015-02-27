@@ -25,8 +25,8 @@
             <TextView
                 android:layout_margin="8dp"
                 android:text="Announcing the death of Steel Magnolia"
-                android:textStyle="bold"
 
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -47,26 +47,26 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@null"
 
+                style="?android:attr/borderlessButtonStyle"
                 android:textColor="?attr/colorPrimary"
                 android:text="Like"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:background="@null"
+                    style="?android:attr/borderlessButtonStyle"
 
-
+                    
                     android:text="Comment"/>
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:background="@null"
+                    style="?android:attr/borderlessButtonStyle"
 
-
+                    
                     android:text="Share"/>
             </LinearLayout>
 
