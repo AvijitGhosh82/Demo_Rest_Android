@@ -14,9 +14,12 @@ package com.nemesis.chatdemo;
         import android.support.v7.app.ActionBarActivity;
         import android.support.v7.widget.Toolbar;
         import android.text.SpannableString;
+        import android.view.Menu;
+        import android.view.MenuItem;
         import android.view.View;
         import android.widget.EditText;
         import android.widget.ListView;
+        import android.widget.Toast;
 
 /**
  * MessageActivity is a main Activity to show a ListView containing Message items
@@ -152,4 +155,43 @@ public class MessageActivity extends ActionBarActivity {
         adapter.notifyDataSetChanged();
         listView.setSelection(messages.size()-1);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+
+            case R.id.action_attach:
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("*/*");
+                startActivityForResult(intent,1);
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        switch(requestCode){
+            case 1:
+                if(resultCode==RESULT_OK){
+                    String FilePath = data.getData().getPath();
+                    //textFile.setText(FilePath);
+                    Toast.makeText(getApplicationContext(), FilePath,
+                            Toast.LENGTH_LONG).show();
+                }
+                break;
+
+        }
+    }
+
 }
