@@ -72,7 +72,7 @@ public class AwesomeAdapter extends BaseAdapter{
             //Check whether message is mine to show green background and align to right
             if(message.isMine())
             {
-                holder.message.setBackgroundResource(R.drawable.bubble_mine);
+                holder.message.setBackgroundResource(R.drawable.bubbla);
                 lp.gravity = Gravity.RIGHT;
             }
             //If not mine then it is from sender to show orange background and align to left
