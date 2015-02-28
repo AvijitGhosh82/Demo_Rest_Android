@@ -9,6 +9,7 @@ package com.nemesis.chatdemo;
 
         import android.content.Context;
         //import android.os.Message;
+        import android.graphics.drawable.Drawable;
         import android.util.Log;
         import android.view.Gravity;
         import android.view.LayoutInflater;
@@ -78,7 +79,10 @@ public class AwesomeAdapter extends BaseAdapter{
             //If not mine then it is from sender to show orange background and align to left
             else
             {
-                holder.message.setBackgroundResource(R.drawable.bubble_your);
+
+                //Drawable d=R.drawable.bubble_your;
+                //Drawable.mutate().setColorFilter( 0xffff0000, Mode.MULTIPLY)
+                holder.message.setBackgroundResource(R.color.green);
                 lp.gravity = Gravity.LEFT;
             }
             holder.message.setLayoutParams(lp);
