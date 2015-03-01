@@ -19,6 +19,7 @@ package com.nemesis.chatdemo;
         import android.view.View;
         import android.widget.EditText;
         import android.widget.ListView;
+        import android.widget.TextView;
         import android.widget.Toast;
 
 /**
@@ -45,7 +46,7 @@ public class MessageActivity extends ActionBarActivity {
 
 
         toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
-        SpannableString s = new SpannableString("Wavit");
+        SpannableString s = new SpannableString("");
         if(toolbar != null)
         {
             setSupportActionBar(toolbar);
@@ -63,7 +64,16 @@ public class MessageActivity extends ActionBarActivity {
         {
             String j =(String) b.get("name");
             SpannableString s1 = new SpannableString(j);
-            getSupportActionBar().setTitle(s1);
+            TextView title= (TextView)findViewById(R.id.toolbar_title);
+            title.setText(j);
+            toolbar.findViewById(R.id.toolbar_title).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getApplicationContext(), "CONTACTS CARD TO BE SHOWN. WORK IN PROGRESS.",
+                            Toast.LENGTH_LONG).show();
+                }
+            });
+            //getSupportActionBar().setTitle(s1);
             sender=j;
         }
 
