@@ -2,8 +2,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.nemesis.chatdemo.MainActivity">
-    <item android:id="@+id/action_attach" android:title="Attach" android:icon="@drawable/ic_arrow_up_bold_hexagon_outline_white_36dp"
-        android:orderInCategory="99" app:showAsAction="always" />
-    <!--<item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />-->
+    <item android:id="@+id/attach" android:title="Attach" android:icon="@drawable/ic_arrow_up_bold_hexagon_outline_white_36dp"
+        android:orderInCategory="99" app:showAsAction="always" >
+        <menu>
+            <item
+                android:id="@+id/changelog"
+
+                app:showAsAction="ifRoom|withText"
+                android:title="Photos"/>
+            <item
+                android:id="@+id/update"
+
+                app:showAsAction="ifRoom|withText"
+                android:title="Video"/>
+            <item
+                android:id="@+id/loc"
+
+                app:showAsAction="ifRoom|withText"
+                android:title="Location"/>
+            <item
+                android:id="@+id/check"
+
+                app:showAsAction="ifRoom|withText"
+                android:title="Audio"/>
+            <item
+                android:id="@+id/action_attach"
+
+                app:showAsAction="ifRoom|withText"
+                android:title="Other"/>
+        </menu>
+    </item>
+    <item android:id="@+id/action_settings" android:title="View all files"
+        android:orderInCategory="100" app:showAsAction="never" />
 </menu>
