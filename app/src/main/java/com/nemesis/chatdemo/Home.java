@@ -62,7 +62,7 @@ public class Home extends ActionBarActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         drawerlistView = (ListView) findViewById(R.id.left_drawer);
 
-        String[] items = { "Milk", "Butter", "Yogurt", "Toothpaste", "Ice Cream" };
+        String[] items = { "Dashboard", "Mail", "Project", "Share", "Update sheet" ,"E attendance"};
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, items);
