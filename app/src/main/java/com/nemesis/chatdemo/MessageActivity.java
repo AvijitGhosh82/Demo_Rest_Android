@@ -7,6 +7,7 @@ package com.nemesis.chatdemo;
         import java.util.Random;
 
         //import android.app.ListActivity;
+        import android.app.AlertDialog;
         import android.app.ListActivity;
         import android.content.Intent;
         import android.os.AsyncTask;
@@ -14,6 +15,7 @@ package com.nemesis.chatdemo;
         import android.support.v7.app.ActionBarActivity;
         import android.support.v7.widget.Toolbar;
         import android.text.SpannableString;
+        import android.view.LayoutInflater;
         import android.view.Menu;
         import android.view.MenuItem;
         import android.view.View;
@@ -69,8 +71,17 @@ public class MessageActivity extends ActionBarActivity {
             toolbar.findViewById(R.id.toolbar_title).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(), "CONTACTS CARD TO BE SHOWN. WORK IN PROGRESS.",
-                            Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MessageActivity.this);
+// ...Irrelevant code for customizing the buttons and title
+                    LayoutInflater inflater = MessageActivity.this.getLayoutInflater();
+                    View dialogView = inflater.inflate(R.layout.contact_card, null);
+                    dialogBuilder.setView(dialogView);
+
+
+                    AlertDialog alertDialog = dialogBuilder.create();
+                    alertDialog.show();
+                   // Toast.makeText(getApplicationContext(), "CONTACTS CARD TO BE SHOWN. WORK IN PROGRESS.",
+                   //         Toast.LENGTH_LONG).show();
                 }
             });
             //getSupportActionBar().setTitle(s1);
