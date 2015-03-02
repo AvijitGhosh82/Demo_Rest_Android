@@ -1,6 +1,7 @@
 package com.nemesis.chatdemo;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -145,6 +146,22 @@ public class Home extends ActionBarActivity {
             getListView().setDivider(null);
             getListView().setDividerHeight(0);
 
+            getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                public boolean onItemLongClick(AdapterView<?> av, View v, int position, long id) {
+                    //Get your item here with the position
+                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+
+                    LayoutInflater inflater = getActivity().getLayoutInflater();
+                    View dialogView = inflater.inflate(R.layout.contact_card, null);
+                    dialogBuilder.setView(dialogView);
+
+
+                    AlertDialog alertDialog = dialogBuilder.create();
+                    alertDialog.show();
+                    return true;
+                }
+            });
+
 
         }
 
@@ -158,6 +175,8 @@ public class Home extends ActionBarActivity {
             intent.putExtra("name", name);
             startActivity(intent);
         }
+
+
     }
 
     public static class Fragment2 extends Fragment {
@@ -259,6 +278,7 @@ class MyAdapter extends BaseAdapter {
         TextView tv2=(TextView) row.findViewById(R.id.txt);
         TextView tv3=(TextView) row.findViewById(R.id.time);
         CircleImageView iv1=(CircleImageView) row.findViewById(R.id.img);
+
 
             tv1.setText(name[position]);
             tv2.setText(txt[position]);
