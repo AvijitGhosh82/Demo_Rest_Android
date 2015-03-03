@@ -62,11 +62,52 @@
         android:orientation="vertical" >
 
 
-        <ImageView
+
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="304dp"
+
+            android:padding="20dp"
             android:id="@+id/image_view"
-            android:layout_width="304dp"
-            android:layout_height="100dp"
-            android:src="@drawable/wavit_logo"/>
+            android:layout_height="190dp">
+
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar"
+                android:src="@drawable/im12"
+                android:layout_width="60dip"
+                android:layout_height="60dip"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User"
+
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vice President"
+                android:textSize="20sp"
+                android:id="@+id/designation"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="someone@somewhere.com"
+                android:id="@+id/email"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
 
         <!-- Nav drawer -->
         <ListView

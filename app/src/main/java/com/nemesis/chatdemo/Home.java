@@ -52,6 +52,7 @@ public class Home extends ActionBarActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private ListView drawerlistView;
+    private MyDrawerAdapter adapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +64,12 @@ public class Home extends ActionBarActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         drawerlistView = (ListView) findViewById(R.id.list_view_drawer);
 
-        String[] items = { "Dashboard", "Mail", "Project", "Share", "Update sheet" ,"E attendance"};
+       // String[] items = { "Dashboard", "Mail", "Project", "Share", "Update sheet" ,"E attendance"};
 
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, items);
+       // ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+         //       android.R.layout.simple_list_item_1, items);
+        
+        adapter1 = new MyDrawerAdapter(this);
 
 
         drawerlistView.setAdapter(adapter1);
@@ -299,5 +302,68 @@ class MyAdapter extends BaseAdapter {
     }
 
 }
+
+class MyDrawerAdapter extends BaseAdapter{
+
+    String[] options;
+    String[] items = { "Dashboard", "Mail", "Project", "Share", "Update sheet" ,"E attendance"};
+    int[] images={R.drawable.newg,R.drawable.edit,R.drawable.flip,R.drawable.bt,R.drawable.pgn,R.drawable.settings};
+    private Context context;
+
+
+
+    MyDrawerAdapter(Context context)
+    {
+        this.context=context;
+        options=items;
+    }
+
+    @Override
+    public int getCount() {
+        // TODO Auto-generated method stub
+        return options.length;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        // TODO Auto-generated method stub
+        return options[position];
+    }
+
+    @Override
+    public long getItemId(int arg0) {
+        // TODO Auto-generated method stub
+        return arg0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // TODO Auto-generated method stub
+        View row=null;
+
+
+        if(convertView==null)
+        {
+            LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            row=inflater.inflate(R.layout.drawer_list_item, parent, false);
+        }
+        else
+        {
+            row=convertView;
+        }
+        TextView tv1=(TextView) row.findViewById(R.id.text1);
+        ImageView iv1=(ImageView) row.findViewById(R.id.image1);
+        RelativeLayout lLayout = (RelativeLayout) row.findViewById(R.id.parentLayout);
+
+            tv1.setText(options[position]);
+            iv1.setImageResource(images[position]);
+            lLayout.setVisibility(View.VISIBLE);
+
+
+        return row;
+    }
+
+}
+
 
 
