@@ -61,7 +61,7 @@ public class Home extends ActionBarActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle= new ActionBarDrawerToggle(this, mDrawerLayout,toolbar, R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        drawerlistView = (ListView) findViewById(R.id.left_drawer);
+        drawerlistView = (ListView) findViewById(R.id.list_view_drawer);
 
         String[] items = { "Dashboard", "Mail", "Project", "Share", "Update sheet" ,"E attendance"};
 
