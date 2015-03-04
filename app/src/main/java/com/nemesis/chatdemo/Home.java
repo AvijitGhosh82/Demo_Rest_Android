@@ -73,6 +73,18 @@ public class Home extends ActionBarActivity {
 
 
         drawerlistView.setAdapter(adapter1);
+
+        drawerlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> av, View v, int position, long id) {
+                //Get your item here with the position
+                if(position==6)
+                {
+                    Intent intent = new Intent(Home.this , Login.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
         
         SpannableString s = new SpannableString("Wavit");
 
@@ -306,8 +318,8 @@ class MyAdapter extends BaseAdapter {
 class MyDrawerAdapter extends BaseAdapter{
 
     String[] options;
-    String[] items = { "Dashboard", "Mail", "Project", "Share", "Update sheet" ,"E attendance"};
-    int[] images={R.drawable.newg,R.drawable.edit,R.drawable.flip,R.drawable.bt,R.drawable.pgn,R.drawable.settings};
+    String[] items = { "Dashboard", "Mail", "Project", "Share", "Update sheet" ,"E attendance", "Logout"};
+    int[] images={R.drawable.newg,R.drawable.edit,R.drawable.flip,R.drawable.bt,R.drawable.pgn,R.drawable.settings, R.drawable.resign};
     private Context context;
 
 
