@@ -77,6 +77,11 @@ public class Home extends ActionBarActivity {
         drawerlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> av, View v, int position, long id) {
                 //Get your item here with the position
+                if(position==5)
+                {
+                    Intent intent = new Intent(Home.this , AttendanceActivity.class);
+                    startActivity(intent);
+                }
                 if(position==6)
                 {
                     Intent intent = new Intent(Home.this , Login.class);
