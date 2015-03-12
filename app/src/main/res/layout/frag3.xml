@@ -29,7 +29,7 @@
                 android:orientation="vertical">
                 <TextView
                     android:layout_margin="8dp"
-                    android:text="Announcing the death of Steel Magnolia"
+                    android:text="Announcing Steel Magnolia"
 
                     android:textStyle="bold"
                     android:textSize="20dp"
@@ -48,31 +48,36 @@
                     android:weightSum="2"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
-                    <Button
+                    <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
+                        android:layout_height="30dp">
+                        <ImageButton android:id="@+id/ImageButton05"
+                            android:layout_height="fill_parent"
+                            android:background="@null"
+                            android:layout_width="fill_parent"></ImageButton>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/upvote"
+                            android:layout_centerInParent="true"></ImageView>
+                    </RelativeLayout>
 
-                        android:textColor="?attr/colorPrimary"
-                        android:text="Upvote"/>
-                    <!--<Button
+
+                    <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
-
-
-
-                        android:text="Comment"/>-->
-
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-
-
-                        android:text="Share"/>
+                        android:layout_height="30dp">
+                        <ImageButton android:id="@+id/ImageButton06"
+                            android:layout_height="fill_parent"
+                            android:background="@null"
+                            android:layout_width="fill_parent"></ImageButton>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/comment"
+                            android:layout_centerInParent="true"></ImageView>
+                    </RelativeLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -117,14 +122,20 @@
                     android:weightSum="2"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
-                    <Button
+                    <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-
-                        android:textColor="?attr/colorPrimary"
-                        android:text="Upvote"/>
+                        android:layout_height="30dp">
+                        <ImageButton android:id="@+id/ImageButton01"
+                            android:layout_height="fill_parent"
+                            android:background="@null"
+                            android:layout_width="fill_parent"></ImageButton>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/upvote"
+                            android:layout_centerInParent="true"></ImageView>
+                    </RelativeLayout>
                     <!--<Button
                         android:layout_width="0dp"
                         android:layout_weight="1"
@@ -134,14 +145,20 @@
 
                         android:text="Comment"/>-->
 
-                    <Button
+                    <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-
-
-                        android:text="Share"/>
+                        android:layout_height="30dp">
+                        <ImageButton android:id="@+id/ImageButton02"
+                            android:layout_height="fill_parent"
+                            android:background="@null"
+                            android:layout_width="fill_parent"></ImageButton>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/comment"
+                            android:layout_centerInParent="true"></ImageView>
+                    </RelativeLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -185,31 +202,38 @@
                     android:weightSum="2"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
-                    <Button
+                    <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
+                        android:layout_height="30dp">
+                        <ImageButton android:id="@+id/ImageButton03"
+                            android:layout_height="fill_parent"
+                            android:background="@null"
+                            android:layout_width="fill_parent"></ImageButton>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/upvote"
+                            android:layout_centerInParent="true"></ImageView>
+                    </RelativeLayout>
 
-                        android:textColor="?attr/colorPrimary"
-                        android:text="Upvote"/>
-                    <!--<Button
+                    <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp">
+                        <ImageButton android:id="@+id/ImageButton04"
+                            android:layout_height="fill_parent"
+                            android:background="@null"
+                            android:layout_width="fill_parent"></ImageButton>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/comment"
+                            android:layout_centerInParent="true"></ImageView>
+                    </RelativeLayout>
 
 
-
-                        android:text="Comment"/>-->
-
-                    <Button
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-
-
-                        android:text="Share"/>
+                        android:text=" "/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -231,7 +255,7 @@
         fab:fab_addButtonColorNormal="@color/magenta"
         fab:fab_addButtonColorPressed="@color/darkmagenta"
         fab:fab_addButtonSize="normal"
-        fab:fab_addButtonPlusIconColor="@color/darkmagenta"
+        fab:fab_addButtonPlusIconColor="#ffffffff"
         fab:fab_expandDirection="up"
         fab:fab_labelStyle="@style/menu_labels_style"
         android:layout_marginTop="16dp"

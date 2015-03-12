@@ -236,6 +236,8 @@ public class Home extends ActionBarActivity {
             // do something with the data
             final Intent intent = new Intent(getActivity(), MessageActivity.class);
 
+            //FloatingActionsMenu fm = ((FloatingActionsMenu) getActivity().findViewById(R.id.new_up));
+
             TextView tv1=(TextView) v.findViewById(R.id.name);
             String name = tv1.getText().toString();
             intent.putExtra("name", name);
