@@ -1,5 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:booty="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".Home">
-
+    <item android:id="@+id/action_search" android:title="Search" android:icon="@drawable/search"
+        booty:showAsAction="always" booty:actionViewClass="android.support.v7.widget.SearchView" />
 </menu>

@@ -2,9 +2,14 @@ package com.nemesis.chatdemo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.SearchManager;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.provider.ContactsContract;
 import android.support.v4.app.ListFragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +17,7 @@ import android.os.Bundle;
 //import android.support.v7.internal.widget.AdapterViewCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.internal.widget.AdapterViewCompat;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.view.Gravity;
@@ -20,6 +26,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -40,6 +47,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -117,19 +125,41 @@ public class Home extends ActionBarActivity {
         tabs.setViewPager(pager);
     }
 
+    /*@Override
+    public boolean onSearchRequested() {
+        startSearch(null,false,null,false);
+        return super.onSearchRequested();
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = new MenuInflater(this);
+        MenuInflater inflater = getMenuInflater();
+        //MenuInflater inflater = new MenuInflater(this);
+
         inflater.inflate(R.menu.menu_home, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo( searchManager.getSearchableInfo(getComponentName()) );
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        switch (item.getItemId()) {
+
+            case R.id.action_search:
+                onSearchRequested();
+                return true;
+        }
+
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -171,9 +201,25 @@ public class Home extends ActionBarActivity {
                     //Get your item here with the position
                     AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
 
-                    LayoutInflater inflater = getActivity().getLayoutInflater();
+                    /*LayoutInflater inflater = getActivity().getLayoutInflater();
                     View dialogView = inflater.inflate(R.layout.contact_card, null);
-                    dialogBuilder.setView(dialogView);
+                    dialogBuilder.setView(dialogView);*/
+                    String[] op={"Archive", "Delete", "Block", "Details"};
+
+                    dialogBuilder.setItems(op,new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            if(i==3)
+                            {
+                                AlertDialog.Builder dialogBuilder2 = new AlertDialog.Builder(getActivity());
+                                LayoutInflater inflater = getActivity().getLayoutInflater();
+                                View dialogView = inflater.inflate(R.layout.contact_card, null);
+                                dialogBuilder2.setView(dialogView);
+                                AlertDialog alertDialog2 = dialogBuilder2.create();
+                                alertDialog2.show();
+                            }
+                        }
+                    });
 
 
                     AlertDialog alertDialog = dialogBuilder.create();
@@ -199,12 +245,59 @@ public class Home extends ActionBarActivity {
 
     }
 
-    public static class Fragment2 extends Fragment {
+    public static class Fragment2 extends ListFragment {
+        String phoneNumber;
+        ListView lv;
+        ArrayList<String> aa= new ArrayList<String>();
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.frag2, container, false);
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+
+            lv= getListView();
+
+            getNumber();
+
+        }
+
+        public void getNumber()
+        {
+            Cursor cursor = null;
+            try {
+                cursor = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+                int contactIdIdx = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone._ID);
+                int nameIdx = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+                int phoneNumberIdx = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+                int photoIdIdx = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_ID);
+                cursor.moveToFirst();
+                do {
+                    String idContact = cursor.getString(contactIdIdx);
+                    String name = cursor.getString(nameIdx);
+                    String phoneNumber = cursor.getString(phoneNumberIdx);
+                    aa.add(name+"\t"+phoneNumber);
+                    //...
+                } while (cursor.moveToNext());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
+            }
+            /*Cursor phones = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,null,null, null);
+            int c=0;
+            while (phones.moveToNext() && c<=20)
+            {
+                String name=phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                //System.out.println(".................."+phoneNumber);
+                aa.add(phoneNumber);
+                c++;
+            }
+            phones.close();*/
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1,aa);
+            lv.setAdapter(adapter);
+            //display contact numbers in the list
         }
     }
 
@@ -213,7 +306,11 @@ public class Home extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             // Inflate the layout for this fragment
+
+            //FloatingActionsMenu fm = ((FloatingActionsMenu) getActivity().findViewById(R.id.new_up));
+
             return inflater.inflate(R.layout.frag3, container, false);
+
         }
     }
 }

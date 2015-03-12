@@ -14,7 +14,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  * @author mwho
  */
 public class PagerAdapter extends FragmentPagerAdapter {
-    private final String[] TITLES = {"Chat", "Teams", "TimeLine"};
+    private final String[] TITLES = {"Chat", "Contacts", "TimeLine"};
 
     private List<Fragment> fragments;
     /**

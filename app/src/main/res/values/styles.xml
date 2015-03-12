@@ -10,4 +10,9 @@
 
     </style>
 
+    <style name="menu_labels_style">
+        <item name="android:background">#2e2e2e</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+
 </resources>
