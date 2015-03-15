@@ -9,6 +9,7 @@ package com.nemesis.chatdemo;
 
         import android.content.Context;
         //import android.os.Message;
+        import android.graphics.Color;
         import android.graphics.drawable.Drawable;
         import android.util.Log;
         import android.view.Gravity;
@@ -73,7 +74,8 @@ public class AwesomeAdapter extends BaseAdapter{
             //Check whether message is mine to show green background and align to right
             if(message.isMine())
             {
-                holder.message.setBackgroundResource(R.drawable.bubbla);
+                holder.message.setBackgroundResource(R.color.magenta);
+                holder.message.setTextColor(Color.parseColor("#ffffff"));
                 lp.gravity = Gravity.RIGHT;
             }
             //If not mine then it is from sender to show orange background and align to left
@@ -82,7 +84,8 @@ public class AwesomeAdapter extends BaseAdapter{
 
                 //Drawable d=R.drawable.bubble_your;
                 //Drawable.mutate().setColorFilter( 0xffff0000, Mode.MULTIPLY)
-                holder.message.setBackgroundResource(R.color.green);
+                holder.message.setBackgroundResource(R.color.white);
+                holder.message.setTextColor(Color.parseColor("#000000"));
                 lp.gravity = Gravity.LEFT;
             }
             holder.message.setLayoutParams(lp);

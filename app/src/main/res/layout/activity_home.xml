@@ -70,7 +70,7 @@
 
             android:padding="20dp"
             android:id="@+id/image_view"
-            android:background="#aeaeae"
+            android:background="@color/material_blue_grey_800"
             android:layout_height="190dp">
 
 
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User"
-
+                android:textColor="#ffffff"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:id="@+id/textView"
@@ -98,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vice President"
+                android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:id="@+id/designation"
                 android:layout_gravity="center_horizontal" />
@@ -105,6 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#ffffff"
                 android:text="someone@somewhere.com"
                 android:id="@+id/email"
                 android:layout_gravity="center_horizontal" />

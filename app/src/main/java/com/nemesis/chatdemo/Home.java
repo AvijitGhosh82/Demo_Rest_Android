@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.provider.ContactsContract;
 import android.support.v4.app.ListFragment;
 import android.support.v4.widget.DrawerLayout;
@@ -42,12 +43,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import net.i2p.android.ext.floatingactionbutton.FloatingActionsMenu;
+import net.i2p.android.ext.floatingactionbutton.FloatingActionsMenu2;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -109,6 +113,8 @@ public class Home extends ActionBarActivity {
 
         this.initialisePaging();
     }
+
+
 
     private void initialisePaging() {
 
@@ -308,12 +314,27 @@ public class Home extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             // Inflate the layout for this fragment
+            View view = inflater.inflate(R.layout.frag3,
+                    container, false);
+            FloatingActionsMenu2 fm=((FloatingActionsMenu2) view.findViewById(R.id.new_up));
+            fm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getActivity().getWindow().setBackgroundDrawable(new ColorDrawable(0x7000000));
+                    Toast.makeText(getActivity(),"La la la", Toast.LENGTH_SHORT).show();
+                }
+            });
 
-            //FloatingActionsMenu fm = ((FloatingActionsMenu) getActivity().findViewById(R.id.new_up));
 
-            return inflater.inflate(R.layout.frag3, container, false);
+
+            return view;
 
         }
+
+
+
+
+
     }
 }
 

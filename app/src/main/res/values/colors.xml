@@ -7,8 +7,8 @@
     <item name="orange" type="color">#ffff9800</item>
     <item name="grey" type="color">#9e9e9e</item>
     <item name="red" type="color">#fff44336</item>
-    <item name="magenta" type="color">#E91E63</item>
-    <item name="darkmagenta" type="color">#C8306C</item>
+    <item name="magenta" type="color">#081765</item>
+    <item name="darkmagenta" type="color">#051046</item>
     <item name="darkblue" type="color">#ff1976d2</item>
     <item name="darkpurple" type="color">#ff7b1fa2</item>
     <item name="darkgreen" type="color">#ff388e3c</item>
@@ -16,6 +16,8 @@
     <item name="darkorange" type="color">#ffef6c00</item>
     <item name="darkred" type="color">#ffd32f2f</item>
     <item name="disabled" type="color">#757575</item>
+    <item name="white" type="color">#ffffff</item>
 
- 
+    <!--<item name="magenta" type="color">#E91E63</item>
+    <item name="darkmagenta" type="color">#C8306C</item>-->
 </resources> 

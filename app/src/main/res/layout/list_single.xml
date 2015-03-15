@@ -61,7 +61,7 @@
         android:text="5:45"
         android:layout_marginRight="5dip"
         android:textSize="10dip"
-        android:textColor="#C8306C"
+        android:textColor="@color/magenta"
         android:textStyle="bold"/>
 
     <!-- Rightend Arrow
